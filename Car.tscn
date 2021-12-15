@@ -1,0 +1,64 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Car.gd" type="Script" id=1]
+[ext_resource path="res://assets/spritesheet_vehicles.png" type="Texture" id=2]
+[ext_resource path="res://Raycasts.gd" type="Script" id=3]
+
+[sub_resource type="CapsuleShape2D" id=1]
+radius = 33.9999
+height = 69.743
+
+[node name="Car" type="KinematicBody2D"]
+collision_mask = 2
+input_pickable = true
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+rotation = 1.5708
+shape = SubResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="."]
+show_behind_parent = true
+rotation = 1.5708
+texture = ExtResource( 2 )
+region_enabled = true
+region_rect = Rect2( 290, 0, 72, 132 )
+
+[node name="Camera2D" type="Camera2D" parent="."]
+visible = false
+zoom = Vector2( 2, 2 )
+
+[node name="Raycasts" type="Node2D" parent="."]
+script = ExtResource( 3 )
+
+[node name="Right" type="RayCast2D" parent="Raycasts"]
+enabled = true
+cast_to = Vector2( 0, 10000 )
+collision_mask = 2
+
+[node name="StraightRight" type="RayCast2D" parent="Raycasts"]
+rotation = -0.785398
+enabled = true
+cast_to = Vector2( 0, 10000 )
+collision_mask = 2
+
+[node name="Straight" type="RayCast2D" parent="Raycasts"]
+rotation = -1.5708
+enabled = true
+cast_to = Vector2( 0, 10000 )
+collision_mask = 2
+
+[node name="StraightLeft" type="RayCast2D" parent="Raycasts"]
+rotation = -2.35619
+enabled = true
+cast_to = Vector2( 0, 10000 )
+collision_mask = 2
+
+[node name="Left" type="RayCast2D" parent="Raycasts"]
+rotation = -3.14159
+enabled = true
+cast_to = Vector2( 0, 10000 )
+collision_mask = 2

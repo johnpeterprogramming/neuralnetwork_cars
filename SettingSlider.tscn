@@ -1,0 +1,32 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://font_x20.tres" type="DynamicFont" id=1]
+
+[node name="SettingSlider" type="HBoxContainer"]
+margin_right = 332.0
+margin_bottom = 25.0
+custom_constants/separation = 15
+
+[node name="Label" type="Label" parent="."]
+margin_right = 133.0
+margin_bottom = 25.0
+custom_fonts/font = ExtResource( 1 )
+text = "traction_fast"
+valign = 1
+
+[node name="Slider" type="HSlider" parent="."]
+margin_left = 148.0
+margin_right = 283.0
+margin_bottom = 16.0
+size_flags_horizontal = 3
+max_value = 1.0
+step = 0.01
+value = 0.1
+
+[node name="Value" type="Label" parent="."]
+margin_left = 298.0
+margin_right = 332.0
+margin_bottom = 25.0
+custom_fonts/font = ExtResource( 1 )
+text = "0.1"
+valign = 1

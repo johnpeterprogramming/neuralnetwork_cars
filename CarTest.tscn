@@ -1,0 +1,58 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://CarTest.gd" type="Script" id=1]
+[ext_resource path="res://assets/spritesheet_vehicles.png" type="Texture" id=2]
+[ext_resource path="res://assets/Xolonium-Regular.ttf" type="DynamicFontData" id=3]
+
+[sub_resource type="ParticlesMaterial" id=3]
+flag_disable_z = true
+gravity = Vector3( 0, 0, 0 )
+angular_velocity = 1.1042e+21
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+scale = 10.0
+color = Color( 0, 0, 0, 1 )
+
+[sub_resource type="CapsuleShape2D" id=1]
+radius = 33.5763
+height = 69.743
+
+[sub_resource type="DynamicFont" id=2]
+size = 42
+font_data = ExtResource( 3 )
+
+[node name="CarTest" type="KinematicBody2D"]
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="SkidLeft" type="Particles2D" parent="."]
+show_behind_parent = true
+position = Vector2( -35, -15 )
+amount = 25
+local_coords = false
+process_material = SubResource( 3 )
+
+[node name="Sprite" type="Sprite" parent="."]
+show_behind_parent = true
+rotation = 1.5708
+texture = ExtResource( 2 )
+region_enabled = true
+region_rect = Rect2( 290, 0, 72, 132 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+rotation = 1.5708
+shape = SubResource( 1 )
+
+[node name="Node2D" type="Node2D" parent="."]
+
+[node name="Label" type="Label" parent="Node2D"]
+margin_left = -28.1052
+margin_top = -80.9892
+margin_right = 27.8948
+margin_bottom = -55.9892
+grow_horizontal = 2
+grow_vertical = 2
+custom_fonts/font = SubResource( 2 )
+text = "1000"
