@@ -52,6 +52,7 @@ func _physics_process(delta):
 #				pass
 #				visible = false
 				engine_on = false
+				update()
 		else:
 			move_and_slide(velocity)
 
@@ -110,7 +111,7 @@ func apply_choices(neural_output):
 	acceleration = transform.x * engine_power
 
 	steer_direction = turn * deg2rad(steering_angle)
-#	acceleration = transform.x * engine_power#heeltyd besig om te ry
+#	acceleration = transform.x * engine_power
 
 func _waypoint(body, waypoint):
 	if body == self and waypoint == waypoints[current_waypoint]:

@@ -1,0 +1,46 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://font_x20.tres" type="DynamicFont" id=1]
+[ext_resource path="res://CheckBox.gd" type="Script" id=2]
+
+[node name="UI" type="Control"]
+anchor_right = 10.0
+anchor_bottom = 5.883
+margin_right = -9216.0
+margin_bottom = -3176.8
+rect_scale = Vector2( 10, 10 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="CheckBox" type="CheckBox" parent="."]
+margin_left = -1.2
+margin_top = 16.6
+margin_right = 191.8
+margin_bottom = 69.6
+custom_fonts/font = ExtResource( 1 )
+text = "Show Raycasts"
+script = ExtResource( 2 )
+
+[node name="Shortcuts" type="Label" parent="."]
+margin_left = -0.5
+margin_top = 147.9
+margin_right = 423.5
+margin_bottom = 228.9
+custom_fonts/font = ExtResource( 1 )
+text = "Press G to Start a new Generation
+Press X to Save the best neural network
+Press L to load best AI from json file"
+
+[node name="Generation" type="Label" parent="."]
+anchor_right = 1.0
+anchor_bottom = 0.331
+margin_left = 0.200001
+margin_top = 86.5
+margin_right = -888.8
+margin_bottom = -5.34301
+size_flags_horizontal = 3
+size_flags_vertical = 5
+custom_fonts/font = ExtResource( 1 )
+text = "Generation 1"
+
+[connection signal="toggled" from="CheckBox" to="CheckBox" method="_on_CheckBox_toggled"]

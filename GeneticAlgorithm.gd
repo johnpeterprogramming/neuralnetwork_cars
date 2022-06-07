@@ -52,7 +52,8 @@ func _input(event):
 		
 func evolve():
 	generation += 1
-	print("GENERATION", generation)
+	var ui = get_node("../UI").get_node("Generation")
+	ui.text = "Generation " + str(generation)
 	selected = select_by_fitness(10)
 
 	var next_population = []
